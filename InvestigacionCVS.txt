@@ -1,0 +1,93 @@
+##Descripción de los comandos de CVS 
+
+El formato general de todos los comandos de CVS es:
+
+	cvs [ cvs_options ] cvs_command [ command_options ] [ command_args ]
+
+Donde:
+
+	cvs
+
+Es el nombre del programa cvs.
+
+	cvs_options
+
+Algunas opciones que afectan a todos los sub-comandos de CVS.
+
+	cvs_command
+
+Uno de varios sub-comandos diferentes. Algunos de los comandos tienen alias que se pueden utilizar en su lugar; los alias se indican en el manual de referencia para ese comando. Sólo hay dos situaciones en las que es posible omitir 'cvs_command': '-H cvs' provoca una lista de comandos disponibles, y '-v cvs' muestra información de la versión en sí CVS.
+
+	command_options
+
+Opciones que son específicas del comando.
+
+	command_args
+
+Argumentos a los comandos.
+
+
+###Opciones globales
+
+Las _'cvs_options'_ disponibles son:
+
+	--allow-root=rootdir
+
+Especifica el directorio _CVSROOT_ legal.
+
+	-a
+
+Autentifica todas las comunicaciones entre el cliente y el servidor. Solo tiene efecto en el cliente CVS.
+
+	- T tempdir
+
+Use _tempdir_ como el directorio donde los archivos temporales son colocados. Anula la configuración de la variable de entorno $ TMPDIR y cualquier directorio precompilado. Este parámetro debe especificarse como una ruta absoluta.
+
+	-d cvs_root_directory
+
+Utilice _cvs_root_directory_ como la ruta de acceso al directorio raíz del repositorio. Anula la configuración de la variable de entorno _$ CVSROOT_.
+
+	-e editor
+
+Utilice editor para introducir la información de registro de revisiones. Anula el ajuste de las variables de entorno _$ CVSEDITOR_ y $ EDITOR.
+
+	 -H
+	--help
+
+Muestra informacion del uso del comando _'cvs_command'_ especificado.
+
+	-r
+Haga nuevos archivos de trabajo de sólo lectura. Mismo efecto que si se establece la variable de entorno _$CVSREAD_.
+
+	-s variable=value
+
+Establece una variable de usuario.
+
+	-t
+
+Traza la ejecución del programa; muestra mensajes en la pantalla de los pasos de la actividad CVS.
+
+	 -v
+	--version
+
+Muestra la version y la información del copyright para cvs.
+
+	-w
+Crea nuevos archivos de trabajo de lectura y escritura. Anula la configuración de la variable de entorno _$ CVSREAD_.
+
+####Añadir archivos y directorios en el repositorio
+
+	add [-k rcs-kflag] [-m message] files...
+
+El comando _add_ se utiliza para presentar los nuevos archivos y directorios para la adición al repositorio CVS. Cuando se utiliza _add_ en un directorio, un nuevo directorio se crea en el repositorio inmediatamente. Cuando se utiliza en un archivo, sólo el directorio de trabajo se actualiza. Los cambios en el repositorio no se hacen hasta que el comando _commit_ se utiliza en el archivo que se acaba de agregar.
+El comando _add_ también resucita a los archivos que se han eliminado previamente. Esto se puede hacer antes o después de que el comando _commit_ se utilice para finalizar la eliminación de archivos. Los archivos resucitados se restauran en el directorio de trabajo en el momento en que se ejecute el comando add.
+
+#####Opciones del comando _add_
+
+	-k kflag
+
+Procesa palabras clave de acuerdo con kflag. 
+
+	-m message
+
+Utiliza _message_ como el mensaje de registro, en lugar de invocar un editor.
