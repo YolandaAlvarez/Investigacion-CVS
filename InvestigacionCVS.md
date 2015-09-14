@@ -1,6 +1,6 @@
-##Descripción de los comandos de CVS 
+##Descripción de los comandos de _CVS_ 
 
-El formato general de todos los comandos de CVS es:
+El formato general de todos los comandos de _CVS_ es:
 
 	cvs [ cvs_options ] cvs_command [ command_options ] [ command_args ]
 
@@ -8,15 +8,15 @@ Donde:
 
 	cvs
 
-Es el nombre del programa cvs.
+Es el nombre del programa _CVS_.
 
 	cvs_options
 
-Algunas opciones que afectan a todos los sub-comandos de CVS.
+Algunas opciones que afectan a todos los sub-comandos de _CVS_.
 
 	cvs_command
 
-Uno de varios sub-comandos diferentes. Algunos de los comandos tienen alias que se pueden utilizar en su lugar; los alias se indican en el manual de referencia para ese comando. Sólo hay dos situaciones en las que es posible omitir 'cvs_command': '-H cvs' provoca una lista de comandos disponibles, y '-v cvs' muestra información de la versión en sí CVS.
+Uno de varios sub-comandos diferentes. Algunos de los comandos tienen alias que se pueden utilizar en su lugar; los alias se indican en el manual de referencia para ese comando. Sólo hay dos situaciones en las que es posible omitir _'cvs_command'_: _'-H cvs'_ provoca una lista de comandos disponibles, y _'-v cvs'_ muestra información de la versión de _CVS_.
 
 	command_options
 
@@ -37,11 +37,11 @@ Especifica el directorio _CVSROOT_ legal.
 
 	-a
 
-Autentifica todas las comunicaciones entre el cliente y el servidor. Solo tiene efecto en el cliente CVS.
+Autentifica todas las comunicaciones entre el cliente y el servidor. Solo tiene efecto en el cliente _CVS_.
 
 	- T tempdir
 
-Use _tempdir_ como el directorio donde los archivos temporales son colocados. Anula la configuración de la variable de entorno $ TMPDIR y cualquier directorio precompilado. Este parámetro debe especificarse como una ruta absoluta.
+Use _tempdir_ como el directorio donde los archivos temporales son colocados. Anula la configuración de la variable de entorno _$ TMPDIR_ y cualquier directorio precompilado. Este parámetro debe especificarse como una ruta absoluta.
 
 	-d cvs_root_directory
 
@@ -49,7 +49,7 @@ Utilice _cvs_root_directory_ como la ruta de acceso al directorio raíz del repo
 
 	-e editor
 
-Utilice editor para introducir la información de registro de revisiones. Anula el ajuste de las variables de entorno _$ CVSEDITOR_ y $ EDITOR.
+Utilice editor para introducir la información de registro de revisiones. Anula el ajuste de las variables de entorno _$ CVSEDITOR_ y _$ EDITOR_.
 
 	 -H
 	--help
@@ -65,34 +65,36 @@ Establece una variable de usuario.
 
 	-t
 
-Traza la ejecución del programa; muestra mensajes en la pantalla de los pasos de la actividad CVS.
+Traza la ejecución del programa; muestra mensajes en la pantalla de los pasos de la actividad _CVS_.
 
 	 -v
 	--version
 
-Muestra la version y la información del copyright para cvs.
+Muestra la version y la información del copyright para _CVS_.
 
 	-w
+
 Crea nuevos archivos de trabajo de lectura y escritura. Anula la configuración de la variable de entorno _$ CVSREAD_.
 
 ####Añadir archivos y directorios en el repositorio
 
 	add [-k rcs-kflag] [-m message] files...
 
-El comando _add_ se utiliza para presentar los nuevos archivos y directorios para la adición al repositorio CVS. Cuando se utiliza _add_ en un directorio, un nuevo directorio se crea en el repositorio inmediatamente. Cuando se utiliza en un archivo, sólo el directorio de trabajo se actualiza. Los cambios en el repositorio no se hacen hasta que el comando _commit_ se utiliza en el archivo que se acaba de agregar.
-El comando _add_ también resucita a los archivos que se han eliminado previamente. Esto se puede hacer antes o después de que el comando _commit_ se utilice para finalizar la eliminación de archivos. Los archivos resucitados se restauran en el directorio de trabajo en el momento en que se ejecute el comando add.
+El comando _add_ se utiliza para presentar los nuevos archivos y directorios para la adición al repositorio _CVS_. Cuando se utiliza _add_ en un directorio, un nuevo directorio se crea en el repositorio inmediatamente. Cuando se utiliza en un archivo, sólo el directorio de trabajo se actualiza. Los cambios en el repositorio no se hacen hasta que el comando _commit_ se utiliza en el archivo que se acaba de agregar.
+El comando _add_ también resucita a los archivos que se han eliminado previamente. Esto se puede hacer antes o después de que el comando _commit_ se utilice para finalizar la eliminación de archivos. Los archivos resucitados se restauran en el directorio de trabajo en el momento en que se ejecute el comando _add_.
 
 #####Opciones del comando _add_
 
 	-k kflag
 
-Procesa palabras clave de acuerdo con kflag. 
+Procesa palabras clave de acuerdo con _kflag_. 
 
 	-m message
 
 Utiliza _message_ como el mensaje de registro, en lugar de invocar un editor.
 
 ####_annotate_ - ¿Qué revisión modificó cada línea de un archivo?
+
 	annotate [options] files…
 
 Para cada archivo en _files_, imprime la revisión principal del tronco, junto con información sobre la última modificación para cada línea.
@@ -137,7 +139,7 @@ El archivo _'ssfile'_ contiene actualmente dos líneas. La línea _ssfile line 1
 
 	checkout [options] modules…
 
-Crea o actualiza un directorio de trabajo que contiene copias de los archivos de fuente especificados por _modules_. Debe ejecutar _checkout_ antes de usar la mayoría de los otros comandos de CVS, ya que la mayoría de ellos operan en su directorio de trabajo.
+Crea o actualiza un directorio de trabajo que contiene copias de los archivos de fuente especificados por _modules_. Debe ejecutar _checkout_ antes de usar la mayoría de los otros comandos de _CVS_, ya que la mayoría de ellos operan en su directorio de trabajo.
 
 Los módulos son o bien los nombres simbólicos para alguna colección de directorios fuente y archivos, o rutas de acceso a directorios o archivos en el repositorio. Los nombres simbólicos se definen en el archivo _'modules'_.
 
@@ -146,6 +148,7 @@ En función de los módulos especificados, _checkout_ puede crear directorios de
 Tenga en cuenta que _checkout_ se utiliza para crear directorios. El directorio de nivel superior creado siempre se añade al directorio donde se invoca _checkout_, y por lo general tiene el mismo nombre que el módulo especificado. En el caso de un alias del módulo, el sub-directorio creado puede tener un nombre diferente, pero usted puede estar seguro de que será un subdirectorio, y que _checkout_ mostrará la ruta relativa que lleva a cada archivo extraído dentro de su área privada de trabajo (a menos que especifique la opción global _"-Q"_).
 
 #####Opciones del comando _checkout_
+
 	-D date
 
 Utiliza la revisión más reciente a más tardar en la fecha. Esta opción es _sticky_, e implica _'-P'_. 
